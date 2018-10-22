@@ -1,0 +1,14 @@
+/Library*
+/Temp
+/Assembly*
+/obj
+/build
+/.vs
+*.csproj
+*.sln
+*.userprefs
+.DS_Store
+/.vscode
+.autosave
+/xcode
+Builds
