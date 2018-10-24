@@ -4,37 +4,30 @@ using UnityEngine;
 
 public class InputControl : MonoBehaviour {
 
-    public GameObject player;
+    float moveSpeed = 1;
 
-    UnitControl unitControl;
+    UnitControl inputTarget;
+    public UnitControl InputTarget {
+        get { return inputTarget; }
+        set { inputTarget = value; }
+    }
 
-	void Start () {
-        unitControl = player.GetComponent<UnitControl>();
-	}
-	
-	void Update () {
+    void Start () {
+        Cursor.lockState = CursorLockMode.Locked;
+
+
+    }
+
+    void Update () {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         Vector2 newInput = Vector2.zero;
-        bool keyDown = false;
-        if (Input.GetKey(KeyCode.W)) {
-            newInput.y = 1.0f;
-            keyDown = true;
-        } else if (Input.GetKey(KeyCode.S)) {
-            newInput.y = -1.0f;
-            keyDown = true;
-        } else {
-            newInput.y = 0;
-        }
 
-        if (Input.GetKey(KeyCode.A)) {
-            newInput.x = -1.0f;
-            keyDown = true;
-        } else if (Input.GetKey(KeyCode.D)) {
-            newInput.x = 1.0f;
-            keyDown = true;
-        } else {
-            newInput.x = 0;
-        }
+        newInput.x = Input.GetAxis("Horizontal") * moveSpeed;
+        newInput.y = Input.GetAxis("Vertical") * moveSpeed;
 
-        unitControl.SetInput(newInput, keyDown);
+        inputTarget.SetInput(newInput, newInput.x != 0 || newInput.y != 0);
 	}
 }
