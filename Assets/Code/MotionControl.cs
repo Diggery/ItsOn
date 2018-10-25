@@ -8,6 +8,8 @@ public class MotionControl : MonoBehaviour {
     Vector2 currentInput = Vector2.zero;
     CharacterController characterController;
 
+    CameraControl cameraControl;
+
 	void Start () {
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
@@ -20,5 +22,7 @@ public class MotionControl : MonoBehaviour {
         animator.SetFloat("InputX", currentInput.x);
         animator.SetFloat("InputY", currentInput.y);
         characterController.Move(Physics.gravity);
+
+        
 	}
 }
