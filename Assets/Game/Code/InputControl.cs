@@ -23,11 +23,13 @@ public class InputControl : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
         }
 
+        if (!inputTarget) return;
+
         Vector2 newInput = Vector2.zero;
 
         newInput.x = Input.GetAxis("Horizontal") * moveSpeed;
         newInput.y = Input.GetAxis("Vertical") * moveSpeed;
 
-        inputTarget.SetInput(newInput, newInput.x != 0 || newInput.y != 0);
+        inputTarget.SetInput(newInput, Mathf.Approximately(0, newInput.x) || Mathf.Approximately(0, newInput.y));
 	}
 }
