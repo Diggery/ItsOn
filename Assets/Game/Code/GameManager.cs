@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviourPunCallbacks {
 
     [SerializeField]
     private GameObject playerPrefab;
+
     private GameObject player;
 
     static GameManager instance;
@@ -25,17 +26,8 @@ public class GameManager : MonoBehaviourPunCallbacks {
             Destroy(this.gameObject);
         }
     }
-
-    private CameraControl cameraControl;
-    public CameraControl ActiveCamera {
-        get { return cameraControl; }
-        set { cameraControl = value; }
-    }
-
-    private InputControl inputControl;
-    public InputControl ActiveInput {
-        get { return inputControl; }
-    }
+    public CameraControl ActiveCamera { get; set; }
+    public InputControl ActiveInput { get; private set; }
 
     private void Awake() {
         CreateInstance();
@@ -53,10 +45,11 @@ public class GameManager : MonoBehaviourPunCallbacks {
             player = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnPos, Quaternion.identity, 0);
         }
 
+        ActiveInput = gameObject.AddComponent<InputControl>();
+        ActiveInput.InputTarget = player.GetComponent<UnitControl>();
+
         ActiveCamera = GameObject.FindGameObjectWithTag("CameraRoot").GetComponent<CameraControl>();
-        inputControl = gameObject.AddComponent<InputControl>();
-        inputControl.InputTarget = player.GetComponent<UnitControl>();
-        cameraControl.CameraTarget = inputControl.InputTarget.transform;
+        ActiveCamera.CameraTarget = ActiveInput.InputTarget.transform;
     }
 
     void Update() {
@@ -67,31 +60,25 @@ public class GameManager : MonoBehaviourPunCallbacks {
         } 
     }
 
-
-
     public override void OnPlayerEnteredRoom(Player other) {
         Debug.Log("OnPlayerEnteredRoom() " + other.NickName); // not seen if you're the player connecting
 
         if (PhotonNetwork.IsMasterClient) {
-            Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
+            Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); 
 
         }
     }
-
 
     public override void OnPlayerLeftRoom(Player other) {
         Debug.Log("OnPlayerLeftRoom() " + other.NickName); // seen when other disconnects
 
         if (PhotonNetwork.IsMasterClient) {
-            Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
-
+            Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); 
         }
     }
 
-
     public override void OnLeftRoom() {
     }
-
 
     public void LeaveRoom() {
         PhotonNetwork.LeaveRoom();
@@ -100,7 +87,6 @@ public class GameManager : MonoBehaviourPunCallbacks {
     public void QuitApplication() {
         Application.Quit();
     }
-
 
     void LoadArena() {
         if (!PhotonNetwork.IsMasterClient) {

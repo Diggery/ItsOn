@@ -18,7 +18,7 @@ public class MotionControl : MonoBehaviour {
 	}
 	
     public void SetInput (Vector3 newInput, bool keyDown) {
-        if (!animator || !unitControl) return;
+        if (!animator || !unitControl || (unitControl && unitControl.inHoldingArea)) return;
 
         currentInput = Vector2.Lerp(currentInput, newInput, Time.deltaTime * 5);
         animator.SetBool("Moving", keyDown && currentInput.magnitude > 0.1f);

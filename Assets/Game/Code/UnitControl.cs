@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
 
-    bool inHoldingArea = true;
+    public bool inHoldingArea = true;
     MotionControl motionControl;
 
     public static GameObject LocalPlayerInstance;
