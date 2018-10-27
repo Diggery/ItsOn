@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CameraRoot
+  - Bullet
+  - SpawnPoint
+  - HoldingArea
   layers:
   - Default
   - TransparentFX

@@ -49,15 +49,11 @@ public class GameManager : MonoBehaviourPunCallbacks {
         }
 
         if (UnitControl.LocalPlayerInstance == null) {
-            Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
-            player = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
-            Debug.Log("Creating player " + player.name);
-        } else {
-            Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
+            Vector3 spawnPos = GameObject.FindGameObjectWithTag("HoldingArea").transform.position;
+            player = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnPos, Quaternion.identity, 0);
         }
 
         ActiveCamera = GameObject.FindGameObjectWithTag("CameraRoot").GetComponent<CameraControl>();
-
         inputControl = gameObject.AddComponent<InputControl>();
         inputControl.InputTarget = player.GetComponent<UnitControl>();
         cameraControl.CameraTarget = inputControl.InputTarget.transform;
@@ -79,29 +75,21 @@ public class GameManager : MonoBehaviourPunCallbacks {
         if (PhotonNetwork.IsMasterClient) {
             Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
 
-          //  LoadArena();
         }
     }
 
-    /// <summary>
-    /// Called when a Photon Player got disconnected. We need to load a smaller scene.
-    /// </summary>
-    /// <param name="other">Other.</param>
+
     public override void OnPlayerLeftRoom(Player other) {
         Debug.Log("OnPlayerLeftRoom() " + other.NickName); // seen when other disconnects
 
         if (PhotonNetwork.IsMasterClient) {
             Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
 
-          //  LoadArena();
         }
     }
 
-    /// <summary>
-    /// Called when the local player left the room. We need to load the launcher scene.
-    /// </summary>
+
     public override void OnLeftRoom() {
-        SceneManager.LoadScene("PunBasics-Launcher");
     }
 
 

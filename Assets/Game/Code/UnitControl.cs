@@ -5,28 +5,36 @@ using UnityEngine;
 
 public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
 
-    bool initComplete = false;
+    bool inHoldingArea = true;
     MotionControl motionControl;
 
     public static GameObject LocalPlayerInstance;
 
     public void Awake() {
+        gameObject.name = photonView.Owner.NickName;
 
         if (photonView.IsMine) {
             LocalPlayerInstance = gameObject;
+            StartCoroutine(MoveOutOfHoldingArea());
+        } else {
+            
+            inHoldingArea = false;
         }
 
         DontDestroyOnLoad(gameObject);
     }
 
     void Start() {
-        Init();
-    }
-
-    private void Init() {
         motionControl = gameObject.AddComponent<MotionControl>();
 
-        initComplete = true;
+    }
+
+    private IEnumerator MoveOutOfHoldingArea() {
+        yield return new WaitForSeconds(3);
+        inHoldingArea = false;
+        Transform bestSpawnLocation = SpawnPoint.FindSpawnLocation();
+        Debug.LogFormat("Moving {0} to {1}", transform.name, bestSpawnLocation.name);
+        transform.position = bestSpawnLocation.position;
     }
 
     public void SetInput(Vector2 input, bool keyDown) {
@@ -34,7 +42,7 @@ public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
     }
 
     private void Update() {
-        if (!initComplete) return;
+        if (!inHoldingArea) return;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
