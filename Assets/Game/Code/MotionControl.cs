@@ -11,6 +11,7 @@ public class MotionControl : MonoBehaviour {
     CameraControl cameraControl;
     Vector2 currentInput = Vector2.zero;
 
+    
     void Start () {
         unitControl = GetComponent<UnitControl>();
         animator = GetComponent<Animator>();
@@ -26,4 +27,21 @@ public class MotionControl : MonoBehaviour {
         animator.SetFloat("InputY", currentInput.y);
         characterController.Move(Physics.gravity);
 	}
+
+    public void PlayReload(Weapon weapon) {
+        animator.SetTrigger("Reload");
+    }
+
+    public void AnimComplete(string anim) {
+        switch (anim) {
+            case "Reload":
+                Weapon weapon = unitControl.CurrentWeapon;
+                weapon.ReloadComplete();
+                break;
+            default:
+                Debug.Log("Don't know about the animation called " + anim);
+                break;
+        }
+        
+    }
 }
