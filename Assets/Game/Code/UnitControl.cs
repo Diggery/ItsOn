@@ -7,6 +7,19 @@ public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
 
     public bool inHoldingArea = true;
     MotionControl motionControl;
+    UnitInventory unitInventory;
+
+    Weapon currentWeapon;
+    public Weapon CurrentWeapon {
+        get {
+            return currentWeapon;
+        }
+        set {
+            value.Equip(this);
+            currentWeapon.Stow();
+            currentWeapon = value;
+        }
+    }
 
     public static GameObject LocalPlayerInstance;
 
@@ -17,7 +30,7 @@ public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
             LocalPlayerInstance = gameObject;
             StartCoroutine(MoveOutOfHoldingArea());
         } else {
-            
+
             inHoldingArea = false;
         }
 
@@ -26,7 +39,7 @@ public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
 
     void Start() {
         motionControl = gameObject.AddComponent<MotionControl>();
-
+        unitInventory = gameObject.AddComponent<UnitInventory>();
     }
 
     private IEnumerator MoveOutOfHoldingArea() {
@@ -46,7 +59,7 @@ public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
-        
+
         if (stream.IsWriting) {
             // We own this player: send the others our data
             //stream.SendNext(this.IsFiring);
@@ -57,4 +70,13 @@ public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
             //this.Health = (float)stream.ReceiveNext();
         }
     }
+ 
+    public int GetRounds(int amount) {
+        return amount;
+    }
+
+    public void AddWeapon(Weapon weapon) {
+        unitInventory.AddWeapon(weapon);
+    }
+
 }

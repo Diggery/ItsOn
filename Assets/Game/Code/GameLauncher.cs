@@ -126,8 +126,6 @@ public class GameLauncher : MonoBehaviourPunCallbacks {
 		PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = this.maxPlayersPerRoom});
 	}
 
-
-
 	public override void OnDisconnected(DisconnectCause cause)
 	{
 		LogFeedback("<Color=Red>OnDisconnected</Color> "+cause);
@@ -141,7 +139,6 @@ public class GameLauncher : MonoBehaviourPunCallbacks {
 
 	}
 
-
 	public override void OnJoinedRoom()
 	{
 		LogFeedback("<Color=Green>OnJoinedRoom</Color> with "+PhotonNetwork.CurrentRoom.PlayerCount+" Player(s)");
@@ -150,7 +147,7 @@ public class GameLauncher : MonoBehaviourPunCallbacks {
 		// #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.AutomaticallySyncScene to sync our instance scene.
 		if (PhotonNetwork.CurrentRoom.PlayerCount == 1) {
 			Debug.Log("First one in, loading the scene");
-			PhotonNetwork.LoadLevel("SampleScene");
+			PhotonNetwork.LoadLevel("GameLevel");
 		}
 	}
 }
