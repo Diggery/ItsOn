@@ -70,6 +70,9 @@ ModelImporter:
     100128: mixamorig:Spine2
     100130: Salazar
     100132: //RootNode
+    100134: ControlGroup
+    100136: Hips_Control
+    100138: Root_Control
     400000: mixamorig:Head
     400002: mixamorig:HeadTop_End
     400004: mixamorig:Hips
@@ -137,11 +140,16 @@ ModelImporter:
     400128: mixamorig:Spine2
     400130: //RootNode
     400132: Salazar
+    400134: ControlGroup
+    400136: Hips_Control
+    400138: Root_Control
     2100000: MatSalazar
     4300000: Salazar
     7400000: mixamo.com
+    7400002: Take 001
     9500000: //RootNode
     13700000: Salazar
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -155,7 +163,10 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'mixamorig:LeftToeBase' : position
+      error = 22.227606 mm\n\t'mixamorig:RightToeBase' : position error = 22.166462
+      mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -176,6 +187,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -200,6 +212,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -965,7 +980,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
