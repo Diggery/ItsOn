@@ -25,11 +25,12 @@ public class InputControl : MonoBehaviour {
 
         if (!inputTarget) return;
 
-        Vector2 newInput = Vector2.zero;
+        Vector2 newKeyInput = Vector2.zero;
 
-        newInput.x = Input.GetAxis("Horizontal") * moveSpeed;
-        newInput.y = Input.GetAxis("Vertical") * moveSpeed;
+        newKeyInput.x = Input.GetAxis("Horizontal") * moveSpeed;
+        newKeyInput.y = Input.GetAxis("Vertical") * moveSpeed;
 
-        inputTarget.SetInput(newInput, Mathf.Approximately(0, newInput.x) || Mathf.Approximately(0, newInput.y));
+        inputTarget.SetInput(newKeyInput, Mathf.Approximately(0, newKeyInput.x) || Mathf.Approximately(0, newKeyInput.y));
+
 	}
 }

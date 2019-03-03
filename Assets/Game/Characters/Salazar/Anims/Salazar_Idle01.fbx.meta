@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: 60ba5b2a13d504a589681c84d0de4dc5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Salazar_Rig:Head_Skel
+    100004: Salazar_Rig:Hips_Skel
+    100006: Salazar_Rig:Jaw_Skel
+    100008: Salazar_Rig:LeftBack_Attach
+    100010: Salazar_Rig:LeftClav_Skel
+    100012: Salazar_Rig:LeftFoot_Skel
+    100014: Salazar_Rig:LeftHand_Attach
+    100016: Salazar_Rig:LeftHand_Skel
+    100018: Salazar_Rig:LeftIndexFinger1_Skel
+    100020: Salazar_Rig:LeftIndexFinger2_Skel
+    100022: Salazar_Rig:LeftIndexFinger3_Skel
+    100024: Salazar_Rig:LeftLowerArm_Skel
+    100026: Salazar_Rig:LeftLowerArmTwist_Skel
+    100028: Salazar_Rig:LeftLowerLeg_Skel
+    100030: Salazar_Rig:LeftMiddleFinger1_Skel
+    100032: Salazar_Rig:LeftMiddleFinger2_Skel
+    100034: Salazar_Rig:LeftMiddleFinger3_Skel
+    100036: Salazar_Rig:LeftPinkieFinger1_Skel
+    100038: Salazar_Rig:LeftPinkieFinger2_Skel
+    100040: Salazar_Rig:LeftPinkieFinger3_Skel
+    100042: Salazar_Rig:LeftRingFinger1_Skel
+    100044: Salazar_Rig:LeftRingFinger2_Skel
+    100046: Salazar_Rig:LeftRingFinger3_Skel
+    100048: Salazar_Rig:LeftThumb1_Skel
+    100050: Salazar_Rig:LeftThumb2_Skel
+    100052: Salazar_Rig:LeftToes_Skel
+    100054: Salazar_Rig:LeftUpperArm_Skel
+    100056: Salazar_Rig:LeftUpperLeg_Skel
+    100058: Salazar_Rig:Neck_Skel
+    100060: Salazar_Rig:RightBack_Attach
+    100062: Salazar_Rig:RightCenter
+    100064: Salazar_Rig:RightClav_Skel
+    100066: Salazar_Rig:RightFoot_Skel
+    100068: Salazar_Rig:RightHand_Attach
+    100070: Salazar_Rig:RightHand_Skel
+    100072: Salazar_Rig:RightIndexFinger1_Skel
+    100074: Salazar_Rig:RightIndexFinger2_Skel
+    100076: Salazar_Rig:RightIndexFinger3_Skel
+    100078: Salazar_Rig:RightLowerArm_Skel
+    100080: Salazar_Rig:RightLowerArmTwist_Skel
+    100082: Salazar_Rig:RightLowerLeg_Skel
+    100084: Salazar_Rig:RightMiddleFinger1_Skel
+    100086: Salazar_Rig:RightMiddleFinger2_Skel
+    100088: Salazar_Rig:RightMiddleFinger3_Skel
+    100090: Salazar_Rig:RightPinkieFinger1_Skel
+    100092: Salazar_Rig:RightPinkieFinger2_Skel
+    100094: Salazar_Rig:RightPinkieFinger3_Skel
+    100096: Salazar_Rig:RightRingFinger1_Skel
+    100098: Salazar_Rig:RightRingFinger2_Skel
+    100100: Salazar_Rig:RightRingFinger3_Skel
+    100102: Salazar_Rig:RightThumb1_Skel
+    100104: Salazar_Rig:RightThumb2_Skel
+    100106: Salazar_Rig:RightToes_Skel
+    100108: Salazar_Rig:RightUpperArm_Skel
+    100110: Salazar_Rig:RightUpperLeg_Skel
+    100112: Salazar_Rig:RootMotion
+    100114: Salazar_Rig:Salazar_Geo
+    100116: Salazar_Rig:Spine1_Skel
+    100118: Salazar_Rig:Spine2_Skel
+    400000: //RootNode
+    400002: Salazar_Rig:Head_Skel
+    400004: Salazar_Rig:Hips_Skel
+    400006: Salazar_Rig:Jaw_Skel
+    400008: Salazar_Rig:LeftBack_Attach
+    400010: Salazar_Rig:LeftClav_Skel
+    400012: Salazar_Rig:LeftFoot_Skel
+    400014: Salazar_Rig:LeftHand_Attach
+    400016: Salazar_Rig:LeftHand_Skel
+    400018: Salazar_Rig:LeftIndexFinger1_Skel
+    400020: Salazar_Rig:LeftIndexFinger2_Skel
+    400022: Salazar_Rig:LeftIndexFinger3_Skel
+    400024: Salazar_Rig:LeftLowerArm_Skel
+    400026: Salazar_Rig:LeftLowerArmTwist_Skel
+    400028: Salazar_Rig:LeftLowerLeg_Skel
+    400030: Salazar_Rig:LeftMiddleFinger1_Skel
+    400032: Salazar_Rig:LeftMiddleFinger2_Skel
+    400034: Salazar_Rig:LeftMiddleFinger3_Skel
+    400036: Salazar_Rig:LeftPinkieFinger1_Skel
+    400038: Salazar_Rig:LeftPinkieFinger2_Skel
+    400040: Salazar_Rig:LeftPinkieFinger3_Skel
+    400042: Salazar_Rig:LeftRingFinger1_Skel
+    400044: Salazar_Rig:LeftRingFinger2_Skel
+    400046: Salazar_Rig:LeftRingFinger3_Skel
+    400048: Salazar_Rig:LeftThumb1_Skel
+    400050: Salazar_Rig:LeftThumb2_Skel
+    400052: Salazar_Rig:LeftToes_Skel
+    400054: Salazar_Rig:LeftUpperArm_Skel
+    400056: Salazar_Rig:LeftUpperLeg_Skel
+    400058: Salazar_Rig:Neck_Skel
+    400060: Salazar_Rig:RightBack_Attach
+    400062: Salazar_Rig:RightCenter
+    400064: Salazar_Rig:RightClav_Skel
+    400066: Salazar_Rig:RightFoot_Skel
+    400068: Salazar_Rig:RightHand_Attach
+    400070: Salazar_Rig:RightHand_Skel
+    400072: Salazar_Rig:RightIndexFinger1_Skel
+    400074: Salazar_Rig:RightIndexFinger2_Skel
+    400076: Salazar_Rig:RightIndexFinger3_Skel
+    400078: Salazar_Rig:RightLowerArm_Skel
+    400080: Salazar_Rig:RightLowerArmTwist_Skel
+    400082: Salazar_Rig:RightLowerLeg_Skel
+    400084: Salazar_Rig:RightMiddleFinger1_Skel
+    400086: Salazar_Rig:RightMiddleFinger2_Skel
+    400088: Salazar_Rig:RightMiddleFinger3_Skel
+    400090: Salazar_Rig:RightPinkieFinger1_Skel
+    400092: Salazar_Rig:RightPinkieFinger2_Skel
+    400094: Salazar_Rig:RightPinkieFinger3_Skel
+    400096: Salazar_Rig:RightRingFinger1_Skel
+    400098: Salazar_Rig:RightRingFinger2_Skel
+    400100: Salazar_Rig:RightRingFinger3_Skel
+    400102: Salazar_Rig:RightThumb1_Skel
+    400104: Salazar_Rig:RightThumb2_Skel
+    400106: Salazar_Rig:RightToes_Skel
+    400108: Salazar_Rig:RightUpperArm_Skel
+    400110: Salazar_Rig:RightUpperLeg_Skel
+    400112: Salazar_Rig:RootMotion
+    400114: Salazar_Rig:Salazar_Geo
+    400116: Salazar_Rig:Spine1_Skel
+    400118: Salazar_Rig:Spine2_Skel
+    2100000: Salazar_Rig_MatSalazar
+    4300000: Salazar_Rig:Salazar_Geo
+    7400000: Idle01
+    9500000: //RootNode
+    13700000: Salazar_Rig:Salazar_Geo
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

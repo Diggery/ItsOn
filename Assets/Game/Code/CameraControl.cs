@@ -10,6 +10,11 @@ public class CameraControl : MonoBehaviour {
         set { cameraTarget = value; }
     }
 
+    Vector3 cameraDir;
+    public Vector3 CameraDir {
+        set { cameraDir = value; }
+    }
+
     Transform cameraTransform;
 
     public Vector3 cameraOffset = Vector3.zero;
@@ -100,6 +105,7 @@ public class CameraControl : MonoBehaviour {
         }
         return Mathf.Clamp(angle, min, max);
     }
+
 }
 
 

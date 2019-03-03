@@ -136,6 +136,15 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: Moving
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsAiming
+  - Type: 9
+    SynchronizeType: 0
+    Name: Reload
+  - Type: 9
+    SynchronizeType: 0
+    Name: Fire
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0

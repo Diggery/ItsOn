@@ -50,8 +50,8 @@ public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
         transform.position = bestSpawnLocation.position;
     }
 
-    public void SetInput(Vector2 input, bool keyDown) {
-        motionControl.SetInput(input, keyDown);
+    public void SetInput(Vector2 keyInput, bool keyDown) {
+        motionControl.SetInput(keyInput, keyDown);
     }
 
     private void Update() {

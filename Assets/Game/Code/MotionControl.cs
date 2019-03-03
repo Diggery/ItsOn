@@ -9,7 +9,7 @@ public class MotionControl : MonoBehaviour {
     CharacterController characterController;
 
     CameraControl cameraControl;
-    Vector2 currentInput = Vector2.zero;
+    Vector2 moveInput = Vector2.zero;
 
     
     void Start () {
@@ -18,14 +18,15 @@ public class MotionControl : MonoBehaviour {
         characterController = GetComponent<CharacterController>();
 	}
 	
-    public void SetInput (Vector3 newInput, bool keyDown) {
+    public void SetInput (Vector2 keyInput, bool keyDown) {
         if (!animator || !unitControl || (unitControl && unitControl.inHoldingArea)) return;
 
-        currentInput = Vector2.Lerp(currentInput, newInput, Time.deltaTime * 5);
-        animator.SetBool("Moving", keyDown && currentInput.magnitude > 0.1f);
-        animator.SetFloat("InputX", currentInput.x);
-        animator.SetFloat("InputY", currentInput.y);
+        moveInput = Vector2.Lerp(moveInput, keyInput, Time.deltaTime * 5);
+        animator.SetBool("Moving", keyDown && moveInput.magnitude > 0.1f);
+        animator.SetFloat("InputX", moveInput.x);
+        animator.SetFloat("InputY", moveInput.y);
         characterController.Move(Physics.gravity);
+
 	}
 
     public void PlayReload(Weapon weapon) {
