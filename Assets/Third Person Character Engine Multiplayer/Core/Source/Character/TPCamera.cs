@@ -89,7 +89,7 @@ namespace TPCEngine
         /// <summary>
         /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
         /// </summary>
-        private void FixedUpdate()
+        private void LateUpdate()
         {
             if (target == null || targetLookAt == null) return;
 
