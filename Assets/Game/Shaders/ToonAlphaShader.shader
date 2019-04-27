@@ -1,4 +1,4 @@
-﻿Shader "Custom/Toon"
+﻿Shader "Custom/ToonAlpha"
 {
 	Properties
 	{
@@ -26,15 +26,22 @@
 		// data on the main directional light and ambient light.
 		Tags
 		{
+			"Queue" = "AlphaTest" 
 			"LightMode" = "ForwardBase"
 			"PassFlags" = "OnlyDirectional"
 		}
+		 LOD 100
+
+		 ZWrite Off
+		 Cull Off
+		 Blend SrcAlpha OneMinusSrcAlpha
+
 
 		CGPROGRAM
 		#pragma vertex vert
 		#pragma fragment frag
 		// Compile multiple versions of this shader depending on lighting settings.
-		#pragma multi_compile_fwdbase
+		//#pragma multi_compile_fwdbase
 
 		#include "UnityCG.cginc"
 		// Files below include macros and functions to assist
