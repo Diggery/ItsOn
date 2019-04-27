@@ -5,15 +5,20 @@ using UnityEngine;
 
 public class FireControl : MonoBehaviour {
     StandaloneController inputController;
-
+    CharacterManager characterManager;
 
     void Start() {
         inputController = GetComponent<StandaloneController>();
+        characterManager = GetComponent<CharacterManager>();
     }
 
     void Update() {
         if (inputController.GetButtonDown("Fire1")) {
-            Debug.Log("Fire!@");
+            Weapon weapon = characterManager.EquippedWeapon;
+            if (weapon && weapon.ReadyToFire) {
+                Debug.Log("Fire!@");
+                weapon.Fire();
+            }
         }
     }
 }
