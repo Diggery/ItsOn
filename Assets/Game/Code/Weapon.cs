@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
 
-    UnitControl unitControl;
+    CharacterManager characterManager;
     MotionControl motionControl;
 
     int roundsInMagazine = 0;
@@ -45,9 +45,9 @@ public class Weapon : MonoBehaviour {
     }
 
     public bool Reload() {
-        int newRounds = unitControl.GetRounds(hasExtendedMag ? magazineCapacityExtend : magazineCapacityNormal);
+        int newRounds = characterManager.GetRounds(hasExtendedMag ? magazineCapacityExtend : magazineCapacityNormal);
         if (newRounds <= 0) {
-            Debug.LogFormat("{0} is out of ammo", unitControl.name);
+            Debug.LogFormat("{0} is out of ammo", characterManager.name);
             return false;
         }
         magazine.SetParent(null);
@@ -62,9 +62,12 @@ public class Weapon : MonoBehaviour {
         isReloading = false;
     }
 
-    public void Equip(UnitControl owner) {
+    public void Equip(CharacterManager owner, Transform attach) {
         isEquipped = true;
-        unitControl = owner;
+        characterManager = owner;
+        transform.SetParent(attach);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
     }
 
     public void Stow() {

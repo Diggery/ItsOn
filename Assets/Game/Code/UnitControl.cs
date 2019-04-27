@@ -15,7 +15,7 @@ public class UnitControl : MonoBehaviourPunCallbacks, IPunObservable {
             return currentWeapon;
         }
         set {
-            value.Equip(this);
+          //  value.Equip(this);
             currentWeapon.Stow();
             currentWeapon = value;
         }
