@@ -5,10 +5,12 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour {
 
     public Weapon EquippedWeapon { get; private set; }
-    Transform equippedWeaponAttach;
+    public Transform equippedWeaponAttach;
+
+    public Weapon testWeapon;
 
     void Start() {
-
+        EquipWeapon(testWeapon);
     }
 
     void Update() {
@@ -16,9 +18,9 @@ public class CharacterManager : MonoBehaviour {
     }
 
     public bool EquipWeapon(Weapon newWeapon) {
+        Debug.Log("Equipping " + newWeapon.name + " for " + this.name);
         EquippedWeapon = newWeapon;
-        EquippedWeapon.Equip(this, equippedWeaponAttach);
-        return true;
+        return EquippedWeapon.Equip(this, equippedWeaponAttach);
     }
 
 

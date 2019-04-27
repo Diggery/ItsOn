@@ -8,12 +8,14 @@ public class Weapon : MonoBehaviour {
     MotionControl motionControl;
 
     int roundsInMagazine = 0;
-    int magazineCapacityNormal = 0;
-    int magazineCapacityExtend = 0;
+    int magazineCapacityNormal = 10;
+    int magazineCapacityExtend = 15;
     bool hasExtendedMag = false;
 
     public GameObject bullet;
     Transform magazine;
+    Transform muzzle;
+    Light muzzleLight;
 
     bool isReloading = false;
     bool isEquipped = false;
@@ -25,6 +27,19 @@ public class Weapon : MonoBehaviour {
 
     void Start() {
         magazine = transform.Find("Magazine");
+        muzzle = transform.Find("Muzzle");
+        muzzleLight = muzzle.gameObject.AddComponent<Light>();
+        muzzleLight.type = LightType.Point;
+        muzzleLight.intensity = 0;
+    }
+
+    private void Update() {
+        if (muzzleLight.intensity > 0) {
+            muzzleLight.intensity -= Time.deltaTime * 5;
+            if (muzzleLight.intensity <= 0) {
+                muzzleLight.enabled = false;
+            }
+        }
     }
 
     public void Fire() {
@@ -40,8 +55,10 @@ public class Weapon : MonoBehaviour {
     }
 
     public virtual void LaunchProjectile() {
-        Debug.Log("Fire!!!");
+        muzzleLight.intensity = 1;
+        muzzleLight.enabled = true;
 
+        Debug.Log("Fire!!!");
     }
 
     public bool Reload() {
@@ -62,12 +79,14 @@ public class Weapon : MonoBehaviour {
         isReloading = false;
     }
 
-    public void Equip(CharacterManager owner, Transform attach) {
+    public bool Equip(CharacterManager owner, Transform attach) {
         isEquipped = true;
         characterManager = owner;
         transform.SetParent(attach);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
+        roundsInMagazine = magazineCapacityNormal;
+        return true;
     }
 
     public void Stow() {
