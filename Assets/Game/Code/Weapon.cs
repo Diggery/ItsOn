@@ -69,6 +69,5 @@ public class Weapon : MonoBehaviour {
 
     public void Stow() {
         isEquipped = false;
-
     }
 }

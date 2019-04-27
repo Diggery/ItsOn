@@ -45,9 +45,9 @@ namespace TPCEngine
 		/// </summary>
 		/// <param name="buttonName">Button identified</param>
 		/// <returns>bool True when an axis has been held down and not released.</returns>
-		public override bool GetButtonDown(string butoonName)
+		public override bool GetButtonDown(string buttonName)
 		{
-			return Input.GetButtonDown(butoonName);
+			return Input.GetButtonDown(buttonName);
 		}
 
 		/// <summary>

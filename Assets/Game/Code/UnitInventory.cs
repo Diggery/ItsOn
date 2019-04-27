@@ -7,8 +7,6 @@ public class UnitInventory : MonoBehaviour {
 
     List<Weapon> weapons = new List<Weapon>();
     Dictionary<AmmoType, int> ammunition = new Dictionary<AmmoType, int>();
-
-    
     
     public void AddWeapon(Weapon weapon) {
 
