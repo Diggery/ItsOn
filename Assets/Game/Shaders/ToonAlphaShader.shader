@@ -142,7 +142,7 @@
 			fixed4 finalColor = (light + _AmbientColor + specular + rim) * _Color * sample;
 			if (finalColor.a < _AlphaThreshold) discard;
 				
-
+			finalColor.a = clamp(finalColor.a, 0, 1);
 			return finalColor;
 		}
 		ENDCG
