@@ -4,20 +4,22 @@
 	{
 		_Color("Color", Color) = (0.5,0.5,0.5,1.0)
 		_MainTex("Main Texture", 2D) = "white" {}
-		// Ambient light is applied uniformly to all surfaces on the object.
-		[HDR]
-		_AmbientColor("Ambient Color", Color) = (0.4,0.4,0.4,1)
-		[HDR]
-		_SpecularColor("Specular Color", Color) = (0.9,0.9,0.9,1)
+	// Ambient light is applied uniformly to all surfaces on the object.
+	[HDR]
+	_AmbientColor("Ambient Color", Color) = (0.4,0.4,0.4,1)
+	[HDR]
+	_SpecularColor("Specular Color", Color) = (0.9,0.9,0.9,1)
 		// Controls the size of the specular reflection.
 		_Glossiness("Glossiness", Float) = 32
 		[HDR]
 		_RimColor("Rim Color", Color) = (1,1,1,1)
 		_RimAmount("Rim Amount", Range(0, 1)) = 0.716
-		// Control how smoothly the rim blends when approaching unlit
-		// parts of the surface.
-		_RimThreshold("Rim Threshold", Range(0, 1)) = 0.1
+			// Control how smoothly the rim blends when approaching unlit
+			// parts of the surface.
+			_RimThreshold("Rim Threshold", Range(0, 1)) = 0.1
+			_AlphaThreshold("Alpha Threshold", Float) = 0.5
 	}
+
 	SubShader
 	{
 		Pass
@@ -32,7 +34,6 @@
 		}
 		 LOD 100
 
-		 ZWrite Off
 		 Cull Off
 		 Blend SrcAlpha OneMinusSrcAlpha
 
@@ -70,6 +71,7 @@
 
 		sampler2D _MainTex;
 		float4 _MainTex_ST;
+		float _AlphaThreshold;
 
 		v2f vert(appdata v)
 		{
@@ -137,7 +139,11 @@
 
 			float4 sample = tex2D(_MainTex, i.uv);
 
-			return (light + _AmbientColor + specular + rim) * _Color * sample;
+			fixed4 finalColor = (light + _AmbientColor + specular + rim) * _Color * sample;
+			if (finalColor.a < _AlphaThreshold) discard;
+				
+
+			return finalColor;
 		}
 		ENDCG
 	}
